@@ -21,12 +21,10 @@ namespace AddressBook
         return View["new_contact.cshtml"];
       };
 
-      ////ALL GOOD CODE ABOVE
-
       Get["/contact/{id}"] = parameters => {
         Dictionary<string, object> model = new Dictionary<string, object>();
         Contact contact = Contact.Find(parameters.id);
-        Address addressList = contact.GetAddress();
+        var addressList = contact.GetAddress();
         model.Add("person", contact);
         model.Add("addresses", addressList);
         return View["contact.cshtml", model];
@@ -57,12 +55,13 @@ namespace AddressBook
         return View["contact.cshtml", model];
       };
 
-
-
-
       Post["/contact/new"] = _ => {
+        Dictionary<string, object> model = new Dictionary<string, object>();
         Contact newContact = new Contact(Request.Form["new-name"], Request.Form["new-phone-number"]);
-        return View["contact.cshtml", newContact];
+        List<Address> allAddresses = newContact.GetAddress();
+        model.Add("person", newContact);
+        model.Add("addresses", allAddresses);
+        return View["contact.cshtml", model];
       };
 
       Post["/"] = _ => {
@@ -70,47 +69,6 @@ namespace AddressBook
         List<Contact> allContacts = Contact.GetAll();
         return View["index.cshtml", allContacts];
       };
-
-
-
-
-
-
-
-      // Post["/contact/new_address"] = _ => {
-      //   Dictionary<string, object> model = new Dictionary<string, object>();
-      //   Contact selectedContact = Contact.GetId();
-      //   Address newAddress = new Address(Request.Form["new-type"], Request.Form["new-street"], Request.Form["new-city"], Request.Form["new-state"], Request.Form["new-zip-code"]);
-      //   List<Address> myAddress = selectedContact.GetAddress();
-      //   myAddress.Add(newAddress);
-      //   model.Add("person", selectedContact);
-      //   model.Add("addresses", myAddress);
-      //   return View["contact.cshtml", model];
-      // };
-      //
-      // Get["/contact/{id}"] = parameters => {
-      //   Dictionary<string, object> model = new Dictionary<string, object>();
-      //   Contact selectedContact = Contact.Find(parameters.id);
-      //   Address address = selectedContact.GetAddress();
-      //   List<Address> myAddress = selectedContact.GetAddress();
-      //   myAddress.Add(address);
-      //   model.Add("person", selectedContact);
-      //   model.Add("addresses", myAddress);
-      //   return View["contact.cshtml", model];
-      // };
-      //
-      // Post["/contact/new"] = _ => {
-      //   Dictionary<string, object> model = new Dictionary<string, object>();
-      //   Contact newContact = new Contact(Request.Form["new-name"], Request.Form["new-phone-number"]);
-      //   Address newAddress = new Address(Request.Form["new-type"], Request.Form["new-street"], Request.Form["new-city"], Request.Form["new-state"], Request.Form["new-zip-code"]);
-      //   List<Address> myAddress = newContact.GetAddress();
-      //   myAddress.Add(newAddress);
-      //   model.Add("person", newContact);
-      //   model.Add("addresses", myAddress);
-      //   return View["contact.cshtml", model];
-      // };
-
-      /////ALL GOOD CODE BELOW
 
       Post["/"] = _ => {
         List<Contact> allContacts = Contact.GetAll();

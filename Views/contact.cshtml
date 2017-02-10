@@ -7,7 +7,7 @@
 <h3><img src="http://icons.iconarchive.com/icons/icons8/windows-8/512/Mobile-Phone-icon.png" class="phone-image"><strong>Phone number:</strong> @Model["person"].GetPhoneNumber()</h3>
 <h3><img src="https://cdn3.iconfinder.com/data/icons/social-messaging-productivity-4/128/home2-512.png" class="house-image"><strong>Address:</strong></h3>
 
-@foreach (Address addressEntry in @Model["person"].GetAddress())
+@foreach (var addressEntry in @Model["person"].GetAddress())
 {
   <h2> @addressEntry["addresses"].GetType()</h2>
   <ul>
