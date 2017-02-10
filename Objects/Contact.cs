@@ -78,7 +78,7 @@ namespace AddressBook.Objects
     {
       foreach (var person in _instances)
       {
-        if (person.GetName() == searchTerm)
+        if (person.GetName().ToLower().Contains(searchTerm.ToLower()))
         {
           return person;
         }
