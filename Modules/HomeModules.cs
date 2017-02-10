@@ -14,6 +14,8 @@ namespace AddressBook.Objects
       _name = contactName;
       _phoneNumber = contactPhoneNumber;
       _address - contactAddress;
+      _instances.Add(this);
+      _id = _instances.Count;
     }
 
     public string GetName()
@@ -44,6 +46,21 @@ namespace AddressBook.Objects
     public void SetAddress(string anAddress)
     {
       _address =  anAddress;
+    }
+
+    public static List<Contact> GetAll()
+    {
+      return _instances;
+    }
+
+    public static void Clear()
+    {
+      _instances.Clear();
+    }
+
+    public static Category Find(int searchId)
+    {
+      return _instances[searchId-1];
     }
   }
 }
