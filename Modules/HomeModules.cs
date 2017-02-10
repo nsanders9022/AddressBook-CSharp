@@ -17,9 +17,8 @@ namespace AddressBook
         return View["contact_form.cshtml"];
       };
 
-      Get["/contact/new/{id}"] = parameters => {
-        Contact contact = Contact.Find(parameters.id);
-        return View["new_contact.cshtml", contact];
+      Get["/contact/new"] = _ => {
+        return View["new_contact.cshtml"];
       };
 
       Get["/contact/{id}"] = parameters => {
@@ -27,9 +26,8 @@ namespace AddressBook
         return View["contact.cshtml", contact];
       };
 
-      Post["/contact/new/{id}"] = parameters => {
+      Post["/contact/new"] = _ => {
         Contact newContact = new Contact(Request.Form["new-name"], Request.Form["new-phone-number"], Request.Form["new-address"]);
-        // Contact contact = Contact.Find(parameters.id);
         return View["contact.cshtml", newContact];
       };
 
