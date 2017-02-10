@@ -11,7 +11,7 @@
 
 @foreach (var person in Model)
 {
-  <img src="http://www.ucdenver.edu/email/PublishingImages/cloud/OABlogo.png" class="book-image"><h3 class="contact-list"><a class="contact-list" href="/contact/@person.GetId()">@person.GetName()</a></h3>
+  <img src="http://www.ucdenver.edu/email/PublishingImages/cloud/OABlogo.png" class="book-image"><h3 class="contact-list"><a class="contact-list" href='/contact/@person["person"].GetId()'>@person["person"].GetName()</a></h3>
 }
 
 <p><a href="/contact/add" class="link">Add a new contact</a></p>

@@ -36,11 +36,6 @@ namespace AddressBook
       };
 
       Post["/"] = _ => {
-        // Contact newContact = new Contact(Request.Form["new-name"], Request.Form["new-phone-number"]);
-        // Address newAddress = new Address(Request.Form["new-type"], Request.Form["new-street"], Request.Form["new-city"], Request.Form["new-state"], Request.Form["new-zip-code"]);
-        // Dictionary<string, object> model = new Dictionary<string, object>();
-        // model.Add("person", newContact);
-        // model.Add("addresses", newAddress);
         List<Contact> allContacts = Contact.GetAll();
         return View["index.cshtml", allContacts];
       };
