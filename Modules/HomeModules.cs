@@ -19,7 +19,13 @@ namespace AddressBook
 
       Get["/contact/new/{id}"] = parameters => {
         Contact contact = Contact.Find(parameters.id);
-        return View["contact.cshtml"];
+        return View["contact.cshtml", contact];
+      };
+
+      Post["/contact/new/{id}"] = parameters => {
+        Contact newContact = new Contact(Request.Form["new-name"], Request.Form["new-phone-number"], Request.Form["new-address"]);
+        // Contact contact = Contact.Find(parameters.id);
+        return View["contact.cshtml", newContact];
       };
 
       Post["/"] = _ => {
