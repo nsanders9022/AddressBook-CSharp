@@ -3,9 +3,15 @@
 }
 
 <h1>You created a contact!</h1>
-<h3><strong>Name:</strong> @Model.GetName()</h3>
-<h3><strong>Phone number:</strong> @Model.GetPhoneNumber()</h3>
-<h3><strong>Address:</strong> @Model.GetAddress()</h3>
+<h3><strong>Name:</strong> @Model["person"].GetName()</h3>
+<h3><strong>Phone number:</strong> @Model["person"].GetPhoneNumber()</h3>
+<h3><strong>Address:</strong> @Model["address"].GetType()</h3>
+<ul>
+  <li>Street: @Model["address"].GetStreet()</li>
+  <li>City: @Model["address"].GetCity()</li>
+  <li>State: @Model["address"].GetState()</li>
+  <li>Zip Code: @Model["address"].GetZipCode()</li>
+</ul>
 
 <a href="/" class="link">View all contacts</a>
 <a href="/contact/add" class="link">Add a new Contact</a>

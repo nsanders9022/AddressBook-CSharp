@@ -4,6 +4,7 @@ namespace AddressBook.Objects
 {
   public class Address
   {
+    private string _type;
     private string _street;
     private string _city;
     private string _state;
@@ -11,14 +12,25 @@ namespace AddressBook.Objects
     private static List<Address> _instances = new List<Address>{};
     private int _id;
 
-    public Address(string addressStreet, string addressCity, string addressState, string addressZipCode)
+    public Address(string addressType, string addressStreet, string addressCity, string addressState, string addressZipCode)
     {
+      _type = addressType;
       _street = addressStreet;
       _city = addressCity;
       _state = addressState;
       _zipCode = addressZipCode;
       _instances.Add(this);
       _id = _instances.Count;
+    }
+
+    public string GetType()
+    {
+      return _type;
+    }
+
+    public void SetTypet(string aType)
+    {
+      _type = aType;
     }
 
     public string GetStreet()
