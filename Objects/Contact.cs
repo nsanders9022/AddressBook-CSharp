@@ -63,5 +63,10 @@ namespace AddressBook.Objects
     {
       return _instances[searchId-1];
     }
+
+    public int GetId()
+    {
+      return _id;
+    }
   }
 }
