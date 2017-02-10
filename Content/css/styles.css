@@ -1,0 +1,36 @@
+button {
+  margin-top: 20px;
+}
+
+h1 {
+  font-size: 60px;
+  color: #376b66;
+  font-weight: bold;
+}
+
+body {
+  background-color: #b7cecc;
+}
+
+p {
+  margin-top: 20px;
+}
+
+a {
+  font-size: 24px;
+  color:black;
+}
+
+
+.link {
+  font-size: 16px;
+  color: #37726d;
+}
+
+.book-image {
+  height: 20px;
+  width:auto;
+  float: left;
+  margin-right: 6px;
+  margin-top: 13px;
+}

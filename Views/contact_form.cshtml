@@ -3,14 +3,17 @@
 }
 
 <h1>Enter a new contact:</h1>
-<form action="/contact/new" method="post">
+<form action="/contact/new" method="post" class="form-group">
   <label for="new-name">Contact name: </label>
-  <input id="new-name" name="new-name" type="text">
+  <input id="new-name" name="new-name" type="text" class="form-control">
+
   <label for="new-phone-number">Contact phone number: </label>
-  <input id="new-phone-number" name="new-phone-number" type="text">
-  <label for="new-address">Contact Address: <label>
-  <input id="new-address" name="new-address" type="text">
+  <input id="new-phone-number" name="new-phone-number" type="text" class="form-control">
+
+  <label for="new-address">Contact address: </label>
+  <input id="new-address" name="new-address" type="text" class="form-control">
+
   <button type="submit" class="btn btn-success">Add</button>
 </form>
 
-<p><a href="/">Return to home page/contact list</a></p>
+<p><a href="/" class="link">Return to home page/contact list</a></p>
