@@ -36,6 +36,16 @@ namespace AddressBook
         List<Contact> allContacts = Contact.GetAll();
         return View["index.cshtml", allContacts];
       };
+
+      Get["/contacts/clear"] = _ => {
+        return View["clear.cshtml"];
+      };
+
+      Post["/contacts/clear"] = _ => {
+        List<Contact> allContacts = Contact.GetAll();
+        allContacts.Clear();
+        return View["clear.cshtml"];
+      };
     }
   }
 }
