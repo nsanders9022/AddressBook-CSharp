@@ -8,6 +8,8 @@ namespace AddressBook.Objects
     private string _city;
     private string _state;
     private string _zipCode;
+    private static List<Address> _instances = new List<Address>{};
+    private int _id;
 
     public Address(string addressStreet, string addressCity, string addressState, string addressZipCode)
     {
@@ -15,6 +17,8 @@ namespace AddressBook.Objects
       _city = addressCity;
       _state = addressState;
       _zipCode = addressZipCode;
+      _instances.Add(this);
+      _id = _instances.Count;
     }
 
     public string GetStreet()
@@ -55,6 +59,16 @@ namespace AddressBook.Objects
     public void SetZipcode(string aZipcode)
     {
       _zipCode = aZipcode;
+    }
+
+    public static List<Address> GetAll()
+    {
+      return _instances;
+    }
+
+    public int GetId
+    {
+      return _id;
     }
 
 
