@@ -8,12 +8,13 @@ namespace AddressBook.Objects
     private string _name;
     private string _phoneNumber;
     private string _address;
+    private int _id;
 
     public Contact(string contactName, string contactPhoneNumber, string contactAddress)
     {
       _name = contactName;
       _phoneNumber = contactPhoneNumber;
-      _address - contactAddress;
+      _address = contactAddress;
       _instances.Add(this);
       _id = _instances.Count;
     }
@@ -58,7 +59,7 @@ namespace AddressBook.Objects
       _instances.Clear();
     }
 
-    public static Category Find(int searchId)
+    public static Contact Find(int searchId)
     {
       return _instances[searchId-1];
     }

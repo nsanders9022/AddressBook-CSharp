@@ -9,7 +9,7 @@ namespace AddressBook
     public HomeModule()
     {
       Get["/"] = _ => {
-        Contact allContacts = Contact.GetAll();
+        List<Contact> allContacts = Contact.GetAll();
         return View["index.cshtml", allContacts];
       };
 
@@ -24,7 +24,7 @@ namespace AddressBook
 
       Post["/"] = _ => {
         Contact newContact = new Contact(Request.Form["new-name"], Request.Form["new-phone-number"], Request.Form["new-address"]);
-        List<Contact> allContacts = Contact.GetAll()
+        List<Contact> allContacts = Contact.GetAll();
         return View["index.cshtml", allContacts];
       };
     }
