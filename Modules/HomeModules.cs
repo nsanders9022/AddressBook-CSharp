@@ -53,6 +53,10 @@ namespace AddressBook
         List<Contact> allContacts = Contact.GetAll();
         return View["index.cshtml",allContacts];
       };
+
+      Get["/search_contact"] = _ => {
+        return View["search_form.cshtml"];
+      };
     }
   }
 }
