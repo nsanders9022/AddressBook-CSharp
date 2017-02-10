@@ -73,5 +73,17 @@ namespace AddressBook.Objects
     {
       _instances.Remove(this);
     }
+
+    public static Contact SearchContact(string searchTerm)
+    {
+      foreach (var person in _instances)
+      {
+        if (person.GetName() == searchTerm)
+        {
+          return person;
+        }
+      }
+      return null;
+    }
   }
 }

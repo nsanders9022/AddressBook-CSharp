@@ -54,8 +54,13 @@ namespace AddressBook
         return View["index.cshtml",allContacts];
       };
 
-      Get["/search_contact"] = _ => {
+      Get["/contact/search"] = _ => {
         return View["search_form.cshtml"];
+      };
+
+      Post["/contact/search_results"] = _ => {
+        Contact selectedContact = Contact.SearchContact(Request.Form["search-name"]);
+        return View["contact.cshtml", selectedContact];
       };
     }
   }
