@@ -29,20 +29,20 @@ namespace AddressBook
       Post["/contact/new"] = _ => {
         Contact newContact = new Contact(Request.Form["new-name"], Request.Form["new-phone-number"]);
         Address newAddress = new Address(Request.Form["new-type"], Request.Form["new-street"], Request.Form["new-city"], Request.Form["new-state"], Request.Form["new-zip-code"]);
-        Dictionary<string, object> model = new Dictionary<string, object();
+        Dictionary<string, object> model = new Dictionary<string, object>();
         model.Add("person", newContact);
-        model.Add("addresses", newAddress)
+        model.Add("addresses", newAddress);
         return View["contact.cshtml", model];
       };
 
       Post["/"] = _ => {
-        Contact newContact = new Contact(Request.Form["new-name"], Request.Form["new-phone-number"]);
-        Address newAddress = new Address(Request.Form["new-type"], Request.Form["new-street"], Request.Form["new-city"], Request.Form["new-state"], Request.Form["new-zip-code"]);
-        Dictionary<string, object> model = new Dictionary<string, object();
-        model.Add("person", newContact);
-        model.Add("addresses", newAddress)
+        // Contact newContact = new Contact(Request.Form["new-name"], Request.Form["new-phone-number"]);
+        // Address newAddress = new Address(Request.Form["new-type"], Request.Form["new-street"], Request.Form["new-city"], Request.Form["new-state"], Request.Form["new-zip-code"]);
+        // Dictionary<string, object> model = new Dictionary<string, object>();
+        // model.Add("person", newContact);
+        // model.Add("addresses", newAddress);
         List<Contact> allContacts = Contact.GetAll();
-        return View["index.cshtml", model];
+        return View["index.cshtml", allContacts];
       };
 
       Get["/contacts/clear"] = _ => {

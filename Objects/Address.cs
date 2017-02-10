@@ -63,7 +63,7 @@ namespace AddressBook.Objects
       _state = aState;
     }
 
-    public string GetZipcode()
+    public string GetZipCode()
     {
       return _state;
     }
@@ -78,11 +78,9 @@ namespace AddressBook.Objects
       return _instances;
     }
 
-    public int GetId
+    public int GetId()
     {
       return _id;
     }
-
-
   }
 }

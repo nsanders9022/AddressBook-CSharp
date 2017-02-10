@@ -5,12 +5,12 @@
 <h1>@Model["person"].GetName()</h1>
 
 <h3><img src="http://icons.iconarchive.com/icons/icons8/windows-8/512/Mobile-Phone-icon.png" class="phone-image"><strong>Phone number:</strong> @Model["person"].GetPhoneNumber()</h3>
-<h3><img src="https://cdn3.iconfinder.com/data/icons/social-messaging-productivity-4/128/home2-512.png" class="house-image"><strong>Address:</strong> @Model["address"].GetType()</h3>
+<h3><img src="https://cdn3.iconfinder.com/data/icons/social-messaging-productivity-4/128/home2-512.png" class="house-image"><strong>Address:</strong> @Model["addresses"].GetType()</h3>
 <ul>
-  <li>Street: @Model["address"].GetStreet()</li>
-  <li>City: @Model["address"].GetCity()</li>
-  <li>State: @Model["address"].GetState()</li>
-  <li>Zip Code: @Model["address"].GetZipCode()</li>
+  <li>Street: @Model["addresses"].GetStreet()</li>
+  <li>City: @Model["addresses"].GetCity()</li>
+  <li>State: @Model["addresses"].GetState()</li>
+  <li>Zip Code: @Model["addresses"].GetZipCode()</li>
 </ul>
 
 <form method="post" action='/contact/delete/@Model["person"].GetId()'>

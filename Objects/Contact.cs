@@ -66,7 +66,7 @@ namespace AddressBook.Objects
 
     public void AddAddress(Address newAddress)
     {
-      _addresses.Add(newAddresses);
+      _addresses.Add(newAddress);
     }
   }
 }
