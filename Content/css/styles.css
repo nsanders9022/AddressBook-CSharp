@@ -1,3 +1,9 @@
+.banner {
+  background-image:url("http://www.ncln.ca/wp-content/uploads/2015/06/books-banner.jpg");
+  height: 200px;
+  wigth: 100%;
+}
+
 button {
   margin-top: 20px;
 }
@@ -33,4 +39,20 @@ a {
   float: left;
   margin-right: 6px;
   margin-top: 13px;
+}
+
+.phone-image {
+  height: 20px;
+  width:auto;
+  float: left;
+  margin-right: 6px;
+  margin-top: 4px;
+}
+
+.house-image {
+  height: 20px;
+  width:auto;
+  float: left;
+  margin-right: 6px;
+  margin-top: 4px;
 }
