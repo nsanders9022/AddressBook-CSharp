@@ -22,16 +22,24 @@ namespace AddressBook
       };
 
       Get["/contact/{id}"] = parameters => {
-        Contact contact = Contact.Find(parameters.id);
-        return View["contact.cshtml", contact];
+        Dictionary<string, object> model = new Dictionary<string, object>();
+        Contact selectedContact = Contact.Find(parameters.id);
+        Address address = selectedContact.GetAddress();
+        List<Address> myAddress = selectedContact.GetAddress();
+        myAddress.Add(address);
+        model.Add("person", selectedContact);
+        model.Add("addresses", myAddress);
+        return View["contact.cshtml", model];
       };
 
       Post["/contact/new"] = _ => {
+        Dictionary<string, object> model = new Dictionary<string, object>();
         Contact newContact = new Contact(Request.Form["new-name"], Request.Form["new-phone-number"]);
         Address newAddress = new Address(Request.Form["new-type"], Request.Form["new-street"], Request.Form["new-city"], Request.Form["new-state"], Request.Form["new-zip-code"]);
-        Dictionary<string, object> model = new Dictionary<string, object>();
+        List<Address> myAddress = newContact.GetAddress();
+        myAddress.Add(newAddress);
         model.Add("person", newContact);
-        model.Add("addresses", newAddress);
+        model.Add("addresses", myAddress);
         return View["contact.cshtml", model];
       };
 

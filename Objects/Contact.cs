@@ -68,5 +68,10 @@ namespace AddressBook.Objects
     {
       _addresses.Add(newAddress);
     }
+
+    public List<Address> GetAddress()
+    {
+      return _addresses;
+    }
   }
 }
