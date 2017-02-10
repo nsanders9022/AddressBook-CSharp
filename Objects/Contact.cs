@@ -68,5 +68,10 @@ namespace AddressBook.Objects
     {
       return _id;
     }
+
+    public void Delete()
+    {
+      _instances.Remove(this);
+    }
   }
 }

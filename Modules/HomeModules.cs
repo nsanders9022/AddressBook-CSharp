@@ -46,6 +46,13 @@ namespace AddressBook
         allContacts.Clear();
         return View["clear.cshtml"];
       };
+
+      Post["/contact/delete/{id}"] = parameters => {
+        Contact contact = Contact.Find(parameters.id);
+        contact.Delete();
+        List<Contact> allContacts = Contact.GetAll();
+        return View["index.cshtml",allContacts];
+      };
     }
   }
 }
