@@ -2,13 +2,9 @@
   Layout="Shared/_Layout.cshtml";
 }
 
-<h1>Enter a new contact:</h1>
-<form action="/contact/new" method="post" class="form-group">
-  <label for="new-name">Contact name: </label>
-  <input id="new-name" name="new-name" type="text" class="form-control">
-
-  <label for="new-phone-number">Contact phone number: </label>
-  <input id="new-phone-number" name="new-phone-number" type="text" class="form-control">
+<h1>Add a new address</h1>
+<form action="/contact/new_address" method="post">
+  <input id='contact-id' name='contact-id' type='hidden' value='@Model["person"].GetId()'>
 
   <label for="new-type">Address type: </label>
   <input id="new-type" name="new-type" type="text" class="form-control">
@@ -21,12 +17,10 @@
 
   <label for="new-state">State </label>
   <input id="new-state" name="new-state" type="text" class="form-control">
-  
+
   <label for="new-zip-code">Zip code: </label>
   <input id="new-zip-code" name="new-zip-code" type="text" class="form-control">
 
+  <button type="submit" class="btn btn-success">Add Address</button>
 
-  <button type="submit" class="btn btn-success">Add</button>
 </form>
-
-<p><a href="/" class="link">Return to home page/contact list</a></p>
