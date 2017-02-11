@@ -24,6 +24,7 @@ namespace AddressBook
       Get["/contact/{id}"] = parameters => {
         Dictionary<string, object> model = new Dictionary<string, object>();
         Contact contact = Contact.Find(parameters.id);
+        // List<Address> allAddresses = contact.GetAddress();
         var addressList = contact.GetAddress();
         model.Add("person", contact);
         model.Add("addresses", addressList);
@@ -59,6 +60,13 @@ namespace AddressBook
         Dictionary<string, object> model = new Dictionary<string, object>();
         Contact newContact = new Contact(Request.Form["new-name"], Request.Form["new-phone-number"]);
         List<Address> allAddresses = newContact.GetAddress();
+        string newType = Request.Form["new-type"];
+        string newStreet = Request.Form["new-street"];
+        string newCity = Request.Form["new-city"];
+        string newState = Request.Form["new-state"];
+        string newZipCode = Request.Form["new-zip-code"];
+        Address newAddress = new Address(newType, newStreet, newCity, newState, newZipCode);
+        allAddresses.Add(newAddress);
         model.Add("person", newContact);
         model.Add("addresses", allAddresses);
         return View["contact.cshtml", model];
