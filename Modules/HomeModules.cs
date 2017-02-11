@@ -105,8 +105,13 @@ namespace AddressBook
       };
 
       Post["/contact/search_results"] = _ => {
+        Dictionary<string, object> model = new Dictionary<string, object>();
         Contact selectedContact = Contact.SearchContact(Request.Form["search-name"]);
-        return View["contact.cshtml", selectedContact];
+        // List<Address> allAddresses = contact.GetAddress();
+        var addressList = selectedContact.GetAddress();
+        model.Add("person", selectedContact);
+        model.Add("addresses", addressList);
+        return View["contact.cshtml", model];
       };
     }
   }

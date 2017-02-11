@@ -74,6 +74,7 @@ namespace AddressBook.Objects
         }
       }
       return null;
+    }
 
     public void AddAddress(Address newAddress)
     {
